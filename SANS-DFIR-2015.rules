@@ -1,0 +1,3 @@
+ipvar HOME_NET 10.0.0.0/8
+ipvar EXTERNAL_NET !$HOME_NET
+alert tcp $HOME_NET any -> $EXTERNAL_NET 1951 (msg:"DFIR-2015 Malware beacon"; flow:from_client,established; content:"ULQENP2"; offset:4; sid:1000001)
